@@ -1,0 +1,102 @@
+Genre: 2D Pixel-Art Narrative Co-op Adventure
+ Engine: Unity (Steam + Online Co-op)
+ Players: 2 (Human / Ghost)
+ Theme: Connection between life and death; fleeting cooperation; light versus shadow
+
+Premise
+Every midnight, a forgotten subway beneath the city becomes a passageway between worlds.
+ One traveler is alive — a commuter trapped underground.
+ The other is a wandering ghost, bound to the tunnels since the accident that took her life.
+ For sixty seconds each night, their worlds overlap.
+ During that short time, they must work together to find the way out — or be lost to the rails forever.
+Human is sorta a lost soul, not knowing why they're in the metro station in the first place, has to work with ghosts to find their fragments of memories and help the ghost escape.
+
+Gameplay Overview
+Dual-World Exploration
+ Each player sees a different version of the same map: the Human World (physical) and the Spirit World (ethereal).
+Timed “Midnight Merge”
+Once per in-game cycle, the worlds align for 60 seconds. During this merge, both players can see and interact with the same objects.
+Co-op Puzzles
+ Progress requires both roles: the Human manipulates physical levers and electricity; the Ghost passes through walls to reveal hidden paths or memories.
+Shared Fate System
+ Health and progress are linked — if one is harmed or lost, both fade. Teamwork is essential.
+Echoes and Memories
+ Collect Echo Fragments — short pixel-animated memories that piece together the subway’s tragedy. 
+Player Roles
+Human (The Commuter)
+Controls machinery, switches, and physical obstacles.
+Uses a flashlight beam to reveal hidden runes during merges.
+Vulnerable to darkness; must rely on the Ghost’s guidance.
+
+
+Ghost (The Wanderer)
+Phases through thin walls and ghost gates.
+Reveals hidden inscriptions and frozen time echoes.
+Loses visibility of the world when too far from the Human.
+Only by staying within the Afterlight Field — the overlapping aura that appears during the merge — can both survive.
+Structure and Progression
+Level format: Station → Tunnel → Service Room → Platform Boss or Memory Sequence.
+
+
+Each level’s puzzle revolves around the interplay of two realities (for example, Human repairs power while Ghost guides through a dark maze).
+
+
+Between nights, players rest in a “Safe Carriage” hub to view collected Echo Fragments and upgrade shared abilities such as light radius and merge duration.
+
+
+Art and Tone
+Pixel art with modern lighting (URP 2D Lights, bloom, parallax).
+
+
+Deep blues, greys, and violets with bursts of gold during merges.
+
+
+Melancholy yet hopeful mood — a liminal mix of cyberpunk and ghost story.
+
+Audio Direction
+Lo-fi ambience of trains, dripping water, and distant announcers.
+
+
+Piano and ambient synth soundtrack that swells during merges.
+
+
+Sound design uses subtle reverb differences to show which world you’re in.
+Technical and Steam Features
+Online co-op using Steam Networking Sockets (Invite Friend flow).
+
+
+Steam Cloud saves host progress and player settings.
+
+
+Steam Input support for controllers and Steam Deck.
+
+
+Playtest branch for early multiplayer testing.
+
+
+Expansion Ideas
+Merge Mishaps: random anomalies where worlds collide early or late.
+
+
+A secret “Conductor” NPC who manipulates merges.
+
+
+Branching endings based on how many Echo Fragments are restored.
+
+
+Tagline and One-Sentence Pitch
+“Two souls. Two worlds. Sixty seconds to connect.”
+ Afterlight Metro is a pixel-art co-op adventure where a living commuter and a ghost work together between midnight trains to escape a city that never sleeps. 
+
+
+
+
+PUZZLES:
+
+Spectral wiring: Human has to connect wires together with the help of the ghost who is able to see the flow of energy from the wires.
+Patrolling Guard: Human has to navigate through a specific area of the metro without being spotted by the guard. Ghost will tell human which ways to go to not get caught. Takes place in a darker area. 
+
+
+
+
+Game Concept — Afterlight Metro
