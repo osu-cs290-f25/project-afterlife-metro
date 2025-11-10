@@ -46,7 +46,7 @@ radius = 5.5673327
 script = ExtResource("1_qir2g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -14.000001)
+position = Vector2(2.0000002, -14.000001)
 scale = Vector2(1.4473684, 1.5)
 sprite_frames = SubResource("SpriteFrames_woueq")
 animation = &"forward-walk"

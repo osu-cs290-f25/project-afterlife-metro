@@ -1,22 +1,29 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1762478905
-::res://assets/::1762478915
-::res://assets/Eris Esra's Character Template/::1762476826
-16x16 Idle-Sheet.png::CompressedTexture2D::1641326130016169868::1753921766::1762476826::1::::<><><>0<>0<>96472cf5d95f66246da14b46a3c8fa39<>res://.godot/imported/16x16 Idle-Sheet.png-8ef2566072cfd5257b55481a575a5906.ctex::
-16x16 Run Cycle-Sheet.png::CompressedTexture2D::9072007103080191918::1753921736::1762476826::1::::<><><>0<>0<>c6bb9490b8eface6e62d7977c2f250b8<>res://.godot/imported/16x16 Run Cycle-Sheet.png-d9215fa0d4b93d0fb10bdd769db270d1.ctex::
-16x16 Walk Cycle-Sheet.png::CompressedTexture2D::1936609031313526914::1753921804::1762476826::1::::<><><>0<>0<>665a6594f5017752ad5f05a77c70c490<>res://.godot/imported/16x16 Walk Cycle-Sheet.png-7a2fb8df48f91080704b09fdeca15dac.ctex::
-16x32 Idle-Sheet.png::CompressedTexture2D::4243423773998905656::1753921616::1762476826::1::::<><><>0<>0<>d00480a84da995fb758ce0af9093d759<>res://.godot/imported/16x32 Idle-Sheet.png-0dca76eba33da5b5c9e539d768fa9d4c.ctex::
-16x32 Run Cycle-Sheet.png::CompressedTexture2D::8902190129200118970::1753921870::1762476826::1::::<><><>0<>0<>e92aaca5e361dbacca466f90cc7a8bff<>res://.godot/imported/16x32 Run Cycle-Sheet.png-6d44654ad844378c05fa6964c139d80d.ctex::
-16x32 Walk Cycle-Sheet.png::CompressedTexture2D::1518520337103127999::1753921634::1762476826::1::::<><><>0<>0<>3f973aeaa80543f76c3aa849ad92d2f0<>res://.godot/imported/16x32 Walk Cycle-Sheet.png-2917597093d36aa5fb4ac050f380dd4b.ctex::
-Radial-Sheet.png::CompressedTexture2D::5168261009217361377::1753921910::1762476826::1::::<><><>0<>0<>02dc197efe9663993a3bc3c77ecb1cff<>res://.godot/imported/Radial-Sheet.png-b2a9ff1d142d9955c1d01c87e526b25c.ctex::
-Spin-Sheet.png::CompressedTexture2D::1398520730659069380::1753921888::1762476826::1::::<><><>0<>0<>7ec54eeff506ec43b9729585bacf1d0e<>res://.godot/imported/Spin-Sheet.png-6bee46c2d517d4935f152bd356b924d8.ctex::
-::res://assets/tiles/::1762478915
-FarmLand_Tile.png::CompressedTexture2D::3090090509365619393::1705795453::1762478918::1::::<><><>0<>0<>e9b6fd64ad36ef8a88df5fcba740985f<>res://.godot/imported/FarmLand_Tile.png-ad6bf85e20f0db261cca729e878d96f1.ctex::
-Grass_Middle.png::CompressedTexture2D::3755005426234835215::1705118429::1762478918::1::::<><><>0<>0<>5998c2ee870a2387ea16c7b5e6c0dc11<>res://.godot/imported/Grass_Middle.png-cae24ff299c5633cb1fcc13577c4b832.ctex::
-Path_Middle.png::CompressedTexture2D::6349074314973146369::1705118441::1762478918::1::::<><><>0<>0<>36afbac54c2d04962c6f7de5865ef239<>res://.godot/imported/Path_Middle.png-42337add9e0c4751bae6494d42425220.ctex::
-Water_Middle.png::CompressedTexture2D::2359316855980785869::1705118397::1762478918::1::::<><><>0<>0<>ae5cc067f4587f83bdf33409a01404fa<>res://.godot/imported/Water_Middle.png-6e9e606a26ea31f336f02beccf17f0b1.ctex::
-::res://scenes/::1762478377
-game.tscn::PackedScene::3722291909767300815::1762478343::0::1::::<><><>0<>0<><>::uid://csnocrlhhcel3::::res://scenes/player1.tscn
-player1.tscn::PackedScene::6063931983377389378::1762478343::0::1::::<><><>0<>0<><>::uid://2udwx8mak3lm::::res://assets/Eris Esra's Character Template/16x16 Walk Cycle-Sheet.png<>uid://e37we0bcl41s::::res://scenes/player_1.gd
-player_1.gd::GDScript::340540431662323666::1762478377::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://::1762733142
+export_presets.cfg::TextFile::-1::1762733142::0::1::::<><><>0<>0<><>::
+player-godot.apple-touch-icon.png::CompressedTexture2D::4200152946741151458::1762733141::1762732812::1::::<><><>0<>0<>d84084ca473c819c1af242faa8d93697<>res://.godot/imported/player-godot.apple-touch-icon.png-708cebd326efff3df80579fce8bf0bc8.ctex::
+player-godot.icon.png::CompressedTexture2D::2335815419578618315::1762733141::1762733208::1::::<><><>0<>0<>d3e7c0717de5a546e277a8715bc5b367<>res://.godot/imported/player-godot.icon.png-6561704435c0f1a864c4a6b897508953.ctex::
+player-godot.png::CompressedTexture2D::3295921504608140766::1762733141::1762732812::1::::<><><>0<>0<>9e5c0961451cb0f71bad38dd19e731bf<>res://.godot/imported/player-godot.png-ec5aea17cff2b1fa88d143cbbd05e2e2.ctex::
+::res://assets/::1762732698
+train1.jpeg::CompressedTexture2D::1183207820698100292::1762728888::1762729402::1::::<><><>0<>0<>3819e1aaa01fd24089eabebb03ef4378<>res://.godot/imported/train1.jpeg-527a6db950e7635bf25ef26c10bd6f68.ctex::
+train2.jpeg::CompressedTexture2D::8065484852868408081::1762728901::1762729402::1::::<><><>0<>0<>2ff078984d776264d06e0aea7db02c0e<>res://.godot/imported/train2.jpeg-7dfff4bed040bb0364d5a49242f80930.ctex::
+::res://assets/Eris Esra's Character Template/::1762480212
+16x16 Idle-Sheet.png::CompressedTexture2D::1641326130016169868::1762480212::1762480212::1::::<><><>0<>0<>96472cf5d95f66246da14b46a3c8fa39<>res://.godot/imported/16x16 Idle-Sheet.png-8ef2566072cfd5257b55481a575a5906.ctex::
+16x16 Run Cycle-Sheet.png::CompressedTexture2D::9072007103080191918::1762480212::1762480212::1::::<><><>0<>0<>c6bb9490b8eface6e62d7977c2f250b8<>res://.godot/imported/16x16 Run Cycle-Sheet.png-d9215fa0d4b93d0fb10bdd769db270d1.ctex::
+16x16 Walk Cycle-Sheet.png::CompressedTexture2D::1936609031313526914::1762480212::1762480212::1::::<><><>0<>0<>665a6594f5017752ad5f05a77c70c490<>res://.godot/imported/16x16 Walk Cycle-Sheet.png-7a2fb8df48f91080704b09fdeca15dac.ctex::
+16x32 Idle-Sheet.png::CompressedTexture2D::4243423773998905656::1762480212::1762480212::1::::<><><>0<>0<>d00480a84da995fb758ce0af9093d759<>res://.godot/imported/16x32 Idle-Sheet.png-0dca76eba33da5b5c9e539d768fa9d4c.ctex::
+16x32 Run Cycle-Sheet.png::CompressedTexture2D::8902190129200118970::1762480212::1762480212::1::::<><><>0<>0<>e92aaca5e361dbacca466f90cc7a8bff<>res://.godot/imported/16x32 Run Cycle-Sheet.png-6d44654ad844378c05fa6964c139d80d.ctex::
+16x32 Walk Cycle-Sheet.png::CompressedTexture2D::1518520337103127999::1762480212::1762480212::1::::<><><>0<>0<>3f973aeaa80543f76c3aa849ad92d2f0<>res://.godot/imported/16x32 Walk Cycle-Sheet.png-2917597093d36aa5fb4ac050f380dd4b.ctex::
+Radial-Sheet.png::CompressedTexture2D::5168261009217361377::1762480212::1762480212::1::::<><><>0<>0<>02dc197efe9663993a3bc3c77ecb1cff<>res://.godot/imported/Radial-Sheet.png-b2a9ff1d142d9955c1d01c87e526b25c.ctex::
+Spin-Sheet.png::CompressedTexture2D::1398520730659069380::1762480212::1762480212::1::::<><><>0<>0<>7ec54eeff506ec43b9729585bacf1d0e<>res://.godot/imported/Spin-Sheet.png-6bee46c2d517d4935f152bd356b924d8.ctex::
+::res://assets/tiles/::1762480212
+FarmLand_Tile.png::CompressedTexture2D::3090090509365619393::1762480212::1762480212::1::::<><><>0<>0<>e9b6fd64ad36ef8a88df5fcba740985f<>res://.godot/imported/FarmLand_Tile.png-ad6bf85e20f0db261cca729e878d96f1.ctex::
+Grass_Middle.png::CompressedTexture2D::3755005426234835215::1762480212::1762480212::1::::<><><>0<>0<>5998c2ee870a2387ea16c7b5e6c0dc11<>res://.godot/imported/Grass_Middle.png-cae24ff299c5633cb1fcc13577c4b832.ctex::
+Path_Middle.png::CompressedTexture2D::6349074314973146369::1762480212::1762480212::1::::<><><>0<>0<>36afbac54c2d04962c6f7de5865ef239<>res://.godot/imported/Path_Middle.png-42337add9e0c4751bae6494d42425220.ctex::
+Water_Middle.png::CompressedTexture2D::2359316855980785869::1762480212::1762480212::1::::<><><>0<>0<>ae5cc067f4587f83bdf33409a01404fa<>res://.godot/imported/Water_Middle.png-6e9e606a26ea31f336f02beccf17f0b1.ctex::
+::res://player-godot/::1762732810
+::res://scenes/::1762733097
+game.tscn::PackedScene::3722291909767300815::1762733097::0::1::::<><><>0<>0<><>::uid://bka4lse00fcc4::::res://assets/tiles/FarmLand_Tile.png<>uid://csnocrlhhcel3::::res://scenes/player1.tscn<>uid://cwpsldjdugwp2::::res://assets/tiles/Path_Middle.png<>uid://btq7njyks0utr::::res://assets/tiles/Grass_Middle.png
+player1.tscn::PackedScene::6063931983377389378::1762732007::0::1::::<><><>0<>0<><>::uid://2udwx8mak3lm::::res://assets/Eris Esra's Character Template/16x16 Walk Cycle-Sheet.png<>uid://e37we0bcl41s::::res://scenes/player_1.gd
+player_1.gd::GDScript::340540431662323666::1762733015::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://scenes/scripts/::1762478202
