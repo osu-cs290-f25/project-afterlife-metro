@@ -1,77 +1,47 @@
 extends CharacterBody2D
 
-@export var move_speed: float = 200.0
-@onready var anim_sys = $AnimationSystem
+class_name PlayerController
 
-var direction: Vector2 = Vector2.ZERO
-var player_facing: String = "down" # "up", "down", "left", "right"
+@export var move_speed = 25.0
+@export var sprint_increase = 1.5
 
-func _enter_tree():
-	# Each player scene must have unique name equal to their peer ID
-	set_multiplayer_authority(name.to_int())
+var direction : Vector2
+var sprinting = false
+var sprint_multiplyer = 2.0
 
+enum Facing {UP, DOWN, LEFT, RIGHT}
+var player_facing : Facing
 
 func _physics_process(delta):
-	# Only authority reads inputs & sends network updates
-	if !is_multiplayer_authority():
-		return
-
-	handle_movement()
-	handle_animation()
-
-
-func handle_movement():
-	direction = Vector2.ZERO
-
-	# Movement input
+	
 	if Input.is_action_pressed("move_up"):
 		direction.y = -1
-		player_facing = "up"
+		player_facing = Facing.UP
 	elif Input.is_action_pressed("move_down"):
 		direction.y = 1
-		player_facing = "down"
-
+		player_facing = Facing.DOWN
+	else:
+		direction.y = 0
+		
 	if Input.is_action_pressed("move_right"):
 		direction.x = 1
-		player_facing = "right"
+		player_facing = Facing.RIGHT
 	elif Input.is_action_pressed("move_left"):
 		direction.x = -1
-		player_facing = "left"
-
-	# Apply movement
-	velocity = direction.normalized() * move_speed
-	move_and_slide()
-
-
-func handle_animation():
-	var anim_name: String
-	var flip_h := false
-
-	# MOVING
-	if direction != Vector2.ZERO:
-		match player_facing:
-			"down":
-				anim_name = "move_down"
-			"up":
-				anim_name = "move_up"
-			"right":
-				anim_name = "move_left"
-				flip_h = true
-			"left":
-				anim_name = "move_left"
-
-	# IDLE
+		player_facing = Facing.LEFT
 	else:
-		match player_facing:
-			"down":
-				anim_name = "idle_down"
-			"up":
-				anim_name = "idle_up"
-			"right":
-				anim_name = "idle_left"
-				flip_h = true
-			"left":
-				anim_name = "idle_left"
-
-	# SEND animation update to all peers
-	anim_sys.rpc("play_animation", anim_name, flip_h)
+		direction.x = 0
+	
+	if Input.is_action_pressed("sprint"):
+		sprint_multiplyer = sprint_increase
+		sprinting = true
+	else:
+		sprint_multiplyer = 1.0
+		sprinting = false
+		
+		
+	direction = direction.normalized() 
+	velocity = direction * move_speed * delta * 200 * sprint_multiplyer
+	move_and_slide()  
+	
+	

@@ -11,13 +11,8 @@ config_version=5
 [application]
 
 config/name="Afterlife-metro-godot-Newt"
-run/main_scene="uid://dg0tkouvdkjqx"
+run/main_scene="uid://cbnkletmcbq87"
 config/features=PackedStringArray("4.5", "Forward Plus")
-
-[autoload]
-
-HighLevelNetworkHandler="*res://Assets/Scripts/high_level_network_handler.gd"
-GameManager="*res://GameManager.gd"
 
 [input]
 
