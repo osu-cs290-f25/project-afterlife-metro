@@ -4,15 +4,15 @@ extends CharacterBody2D
 @onready var anim_sys = $AnimationSystem
 
 var direction: Vector2 = Vector2.ZERO
-var player_facing: String = "down" # "up", "down", "left", "right"
+var player_facing: String = "down"
+
 
 func _enter_tree():
-	# Each player scene must have unique name equal to their peer ID
 	set_multiplayer_authority(name.to_int())
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta):
-	# Only authority reads inputs & sends network updates
 	if !is_multiplayer_authority():
 		return
 
@@ -23,7 +23,6 @@ func _physics_process(delta):
 func handle_movement():
 	direction = Vector2.ZERO
 
-	# Movement input
 	if Input.is_action_pressed("move_up"):
 		direction.y = -1
 		player_facing = "up"
@@ -38,40 +37,31 @@ func handle_movement():
 		direction.x = -1
 		player_facing = "left"
 
-	# Apply movement
 	velocity = direction.normalized() * move_speed
 	move_and_slide()
 
 
 func handle_animation():
-	var anim_name: String
+	var anim_name := ""
 	var flip_h := false
 
-	# MOVING
 	if direction != Vector2.ZERO:
 		match player_facing:
-			"down":
-				anim_name = "move_down"
-			"up":
-				anim_name = "move_up"
-			"right":
-				anim_name = "move_left"
+			"down":  anim_name = "Move_Down"
+			"up":    anim_name = "Move_Up"
+			"right": 
+				anim_name = "Move_left"
 				flip_h = true
-			"left":
-				anim_name = "move_left"
-
-	# IDLE
+			"left":  
+				anim_name = "Move_left"
 	else:
 		match player_facing:
-			"down":
-				anim_name = "idle_down"
-			"up":
-				anim_name = "idle_up"
-			"right":
-				anim_name = "idle_left"
+			"down":  anim_name = "Idle_Down"
+			"up":    anim_name = "Idle_Up"
+			"right": 
+				anim_name = "Idle_left"
 				flip_h = true
-			"left":
-				anim_name = "idle_left"
+			"left":  
+				anim_name = "Idle_left"
 
-	# SEND animation update to all peers
 	anim_sys.rpc("play_animation", anim_name, flip_h)

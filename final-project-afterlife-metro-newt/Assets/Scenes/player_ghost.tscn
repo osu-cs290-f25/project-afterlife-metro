@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddmyvlpk0jsfa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ty7q"]
+load_path = "res://.godot/imported/Ghost sprite fixed.png-83f14286e53cc97cea36e570d15ea599.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ty7q"]
+
+[node name="player_ghost" type="CharacterBody2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="AnimationSystem" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationSystem"]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationSystem"]
+texture = SubResource("CompressedTexture2D_4ty7q")
+region_enabled = true
+region_rect = Rect2(62.614807, 62.626785, 8.481949, 6.168686)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4ty7q")

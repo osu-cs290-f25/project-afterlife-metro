@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bsj0qcbx3xkrp"]
+
+[node name="Mainlevel" type="Node2D"]
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="HumanSpawn" type="Marker2D" parent="Spawners"]
+
+[node name="GhostSpawn" type="Marker2D" parent="Spawners"]
