@@ -9,22 +9,22 @@ func _process(delta):
 	if player_controller.velocity.length() > 0.0:
 		# play movement animations
 		if player_controller.player_facing == player_controller.Facing.DOWN:
-			animation_player.play("Move_Down")
+			animation_player.play("move_down")
 		elif player_controller.player_facing == player_controller.Facing.UP:
-			animation_player.play("Move_Up")
+			animation_player.play("move_up")
 		elif player_controller.player_facing == player_controller.Facing.RIGHT:
-			animation_player.play("Move_left")
+			animation_player.play("move_left")
 			sprite_2d.flip_h = true
 		elif player_controller.player_facing == player_controller.Facing.LEFT:
-			animation_player.play("Move_left")
-	else: 
-		#play idle animations
+			animation_player.play("move_left")
+	else:
+		# play idle animations
 		if player_controller.player_facing == player_controller.Facing.DOWN:
-			animation_player.play("Idle_Down")
+			animation_player.play("idle_down")
 		elif player_controller.player_facing == player_controller.Facing.UP:
-			animation_player.play("Idle_Up")
+			animation_player.play("idle_up")
 		elif player_controller.player_facing == player_controller.Facing.RIGHT:
-			animation_player.play("Idle_left")
+			animation_player.play("idle_left")
 			sprite_2d.flip_h = true
 		elif player_controller.player_facing == player_controller.Facing.LEFT:
-			animation_player.play("Idle_left")
+			animation_player.play("idle_left")

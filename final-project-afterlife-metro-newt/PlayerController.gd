@@ -13,7 +13,7 @@ enum Facing {UP, DOWN, LEFT, RIGHT}
 var player_facing : Facing
 
 func _physics_process(delta):
-	
+
 	if Input.is_action_pressed("move_up"):
 		direction.y = -1
 		player_facing = Facing.UP
@@ -22,7 +22,7 @@ func _physics_process(delta):
 		player_facing = Facing.DOWN
 	else:
 		direction.y = 0
-		
+
 	if Input.is_action_pressed("move_right"):
 		direction.x = 1
 		player_facing = Facing.RIGHT
@@ -31,17 +31,14 @@ func _physics_process(delta):
 		player_facing = Facing.LEFT
 	else:
 		direction.x = 0
-	
+
 	if Input.is_action_pressed("sprint"):
 		sprint_multiplyer = sprint_increase
 		sprinting = true
 	else:
 		sprint_multiplyer = 1.0
 		sprinting = false
-		
-		
-	direction = direction.normalized() 
+
+	direction = direction.normalized()
 	velocity = direction * move_speed * delta * 200 * sprint_multiplyer
-	move_and_slide()  
-	
-	
+	move_and_slide()

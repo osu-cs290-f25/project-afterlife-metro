@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://1nksj2ku1owl"]
+
+[ext_resource type="PackedScene" uid="uid://chp8c7s1r10f3" path="res://Assets/Scenes/Areas/main_area.tscn" id="1_cycvv"]
+
+[node name="Game" type="Node2D"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftViewpointContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="LeftSubViewport" type="SubViewport" parent="HBoxContainer/LeftViewpointContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="LeftCamera2D" type="Camera2D" parent="HBoxContainer/LeftViewpointContainer/LeftSubViewport"]
+
+[node name="MainArea" parent="HBoxContainer/LeftViewpointContainer/LeftSubViewport/LeftCamera2D" instance=ExtResource("1_cycvv")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="RightCamera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 553.0
+offset_top = -4.0
+offset_right = 553.0
+offset_bottom = 508.0
