@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../../../home"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "final-project-afterlife-metro"
+	}
+}
