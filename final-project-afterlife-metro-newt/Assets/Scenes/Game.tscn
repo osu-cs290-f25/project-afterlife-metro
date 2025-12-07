@@ -5,6 +5,7 @@
 
 [node name="Game2D" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -36,7 +37,6 @@ render_target_update_mode = 4
 
 [node name="LeftCamera2D" type="Camera2D" parent="HBoxContainer/LeftViewportContainer/LeftSubViewport"]
 unique_name_in_owner = true
-zoom = Vector2(2, 2)
 
 [node name="main_area" parent="HBoxContainer/LeftViewportContainer/LeftSubViewport" instance=ExtResource("1_cycvv")]
 unique_name_in_owner = true
@@ -45,7 +45,7 @@ position = Vector2(301, 293)
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-color = Color(1, 0.14999998, 0.14999998, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="RightViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -54,9 +54,10 @@ stretch = true
 
 [node name="RightSubViewport" type="SubViewport" parent="HBoxContainer/RightViewportContainer"]
 unique_name_in_owner = true
+handle_input_locally = false
 size = Vector2i(579, 652)
+render_target_update_mode = 4
 
 [node name="RightCamera2D" type="Camera2D" parent="HBoxContainer/RightViewportContainer/RightSubViewport"]
 unique_name_in_owner = true
 position = Vector2(1151, 0)
-zoom = Vector2(2, 2)

@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Afterlife-metro-godot-Newt"
-run/main_scene="uid://1nksj2ku1owl"
+run/main_scene="uid://dg0tkouvdkjqx"
 config/features=PackedStringArray("4.5", "Forward Plus")
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
