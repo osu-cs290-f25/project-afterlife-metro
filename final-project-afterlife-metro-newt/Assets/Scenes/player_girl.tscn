@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://0gjwfuxi7lf6"]
 
-[ext_resource type="Script" uid="uid://c6re3bok88c23" path="res://PlayerController.gd" id="1_aidxa"]
+[ext_resource type="Script" uid="uid://c6re3bok88c23" path="res://Player_HumanController.gd" id="1_aidxa"]
 [ext_resource type="Script" uid="uid://2yeosnct2uc8" path="res://animation_system.gd" id="2_4vabh"]
 [ext_resource type="Texture2D" uid="uid://vsg2mn3q50yj" path="res://Assets/Sprites/Girl Sprite.png" id="3_ykfhg"]
 
@@ -64,6 +64,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [Rect2(0, 0, 64, 64)]
 }
+
+[sub_resource type="Animation" id="Animation_4vabh"]
+resource_name = "idle_left"
+step = 0.1667
 
 [sub_resource type="Animation" id="Animation_fujxj"]
 resource_name = "idle_up"
@@ -145,10 +149,6 @@ tracks/0/keys = {
 "values": [Rect2(0, 262.39853, 64, 57.60147), Rect2(64, 261.4655, 64, 58.534485), Rect2(128, 261.466, 64, 58.534), Rect2(192, 261.466, 64, 58.534), Rect2(256, 261.466, 64, 58.534), Rect2(320, 261.466, 64, 58.534)]
 }
 
-[sub_resource type="Animation" id="Animation_4vabh"]
-resource_name = "idle_left"
-step = 0.1667
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_psl8t"]
 _data = {
 &"Idle_left": SubResource("Animation_k88q1"),
@@ -162,10 +162,12 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8y251"]
-radius = 15.0
+radius = 14.0
+height = 52.0
 
 [node name="Player_Girl" type="CharacterBody2D"]
 script = ExtResource("1_aidxa")
+input_prefix = ""
 
 [node name="AnimationSystem" type="Node2D" parent="." node_paths=PackedStringArray("player_controller")]
 script = ExtResource("2_4vabh")
@@ -185,5 +187,5 @@ region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(1, -21)
 shape = SubResource("CapsuleShape2D_8y251")

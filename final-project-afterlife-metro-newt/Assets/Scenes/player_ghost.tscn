@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://ddmyvlpk0jsfa"]
 
 [ext_resource type="Texture2D" uid="uid://brkrryj1qkhf7" path="res://Assets/Sprites/Ghost sprite fixed fixed.png" id="1_a32a6"]
-[ext_resource type="Script" uid="uid://c6re3bok88c23" path="res://PlayerController.gd" id="1_l5aar"]
+[ext_resource type="Script" uid="uid://c6re3bok88c23" path="res://Player_HumanController.gd" id="1_l5aar"]
 [ext_resource type="Script" uid="uid://2yeosnct2uc8" path="res://animation_system.gd" id="2_orv64"]
 
 [sub_resource type="Animation" id="Animation_8g7ac"]
@@ -124,29 +124,32 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l5aar"]
 _data = {
 &"RESET": SubResource("Animation_8g7ac"),
-&"idle_down": SubResource("Animation_jebqj"),
-&"idle_left": SubResource("Animation_2ttr4"),
-&"idle_up": SubResource("Animation_6a51s"),
-&"move_down": SubResource("Animation_a32a6"),
-&"move_left": SubResource("Animation_l5aar"),
-&"move_up": SubResource("Animation_orv64")
+&"ghost_idle_down": SubResource("Animation_jebqj"),
+&"ghost_idle_left": SubResource("Animation_2ttr4"),
+&"ghost_idle_up": SubResource("Animation_6a51s"),
+&"ghost_move_down": SubResource("Animation_a32a6"),
+&"ghost_move_left": SubResource("Animation_l5aar"),
+&"ghost_move_up": SubResource("Animation_orv64")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4ty7q"]
-radius = 15.132746
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5aar"]
+radius = 15.0
+height = 48.0
 
 [node name="player_ghost" type="CharacterBody2D"]
 script = ExtResource("1_l5aar")
+input_prefix = "ghost_"
 
 [node name="AnimationSystem" type="Node2D" parent="." node_paths=PackedStringArray("player_controller")]
 script = ExtResource("2_orv64")
 player_controller = NodePath("..")
+animation_prefix = "ghost_"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationSystem"]
 libraries = {
 &"": SubResource("AnimationLibrary_l5aar")
 }
-autoplay = "idle_down"
+autoplay = "ghost_idle_down"
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimationSystem"]
 position = Vector2(-1, -35)
@@ -156,5 +159,5 @@ region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
-shape = SubResource("CircleShape2D_4ty7q")
+position = Vector2(1, -24)
+shape = SubResource("CapsuleShape2D_l5aar")

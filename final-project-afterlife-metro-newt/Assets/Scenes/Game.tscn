@@ -1,35 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://1nksj2ku1owl"]
+[gd_scene load_steps=3 format=3 uid="uid://1nksj2ku1owl"]
 
 [ext_resource type="PackedScene" uid="uid://chp8c7s1r10f3" path="res://Assets/Scenes/Areas/main_area.tscn" id="1_cycvv"]
+[ext_resource type="Script" uid="uid://b3vf5p4e21wvk" path="res://Assets/Scenes/game.gd" id="1_dgnlb"]
 
-[node name="Game" type="Node2D"]
+[node name="Game2D" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dgnlb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 18.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="LeftViewpointContainer" type="SubViewportContainer" parent="HBoxContainer"]
+[node name="LeftViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
 
-[node name="LeftSubViewport" type="SubViewport" parent="HBoxContainer/LeftViewpointContainer"]
+[node name="LeftSubViewport" type="SubViewport" parent="HBoxContainer/LeftViewportContainer"]
+unique_name_in_owner = true
 handle_input_locally = false
+size = Vector2i(578, 652)
 render_target_update_mode = 4
 
-[node name="LeftCamera2D" type="Camera2D" parent="HBoxContainer/LeftViewpointContainer/LeftSubViewport"]
+[node name="LeftCamera2D" type="Camera2D" parent="HBoxContainer/LeftViewportContainer/LeftSubViewport"]
+unique_name_in_owner = true
+zoom = Vector2(2, 2)
 
-[node name="MainArea" parent="HBoxContainer/LeftViewpointContainer/LeftSubViewport/LeftCamera2D" instance=ExtResource("1_cycvv")]
+[node name="main_area" parent="HBoxContainer/LeftViewportContainer/LeftSubViewport" instance=ExtResource("1_cycvv")]
+unique_name_in_owner = true
+position = Vector2(301, 293)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
+color = Color(1, 0.14999998, 0.14999998, 1)
 
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
-handle_input_locally = false
-render_target_update_mode = 4
+[node name="RightViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
 
-[node name="RightCamera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
+[node name="RightSubViewport" type="SubViewport" parent="HBoxContainer/RightViewportContainer"]
+unique_name_in_owner = true
+size = Vector2i(579, 652)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 553.0
-offset_top = -4.0
-offset_right = 553.0
-offset_bottom = 508.0
+[node name="RightCamera2D" type="Camera2D" parent="HBoxContainer/RightViewportContainer/RightSubViewport"]
+unique_name_in_owner = true
+position = Vector2(1151, 0)
+zoom = Vector2(2, 2)

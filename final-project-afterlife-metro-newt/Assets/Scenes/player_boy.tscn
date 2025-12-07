@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ck7513xyrml7i"]
 
-[ext_resource type="Script" uid="uid://c6re3bok88c23" path="res://PlayerController.gd" id="1_ykfhg"]
+[ext_resource type="Script" uid="uid://c6re3bok88c23" path="res://Player_HumanController.gd" id="1_ykfhg"]
 [ext_resource type="Script" uid="uid://2yeosnct2uc8" path="res://animation_system.gd" id="2_psl8t"]
 [ext_resource type="Texture2D" uid="uid://c2woe2jmq114" path="res://Assets/Sprites/Boy Sprite.png" id="2_ykfhg"]
 
@@ -131,10 +131,11 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dto3"]
 radius = 14.0
-height = 28.0
+height = 46.0
 
 [node name="player_boy" type="CharacterBody2D"]
 script = ExtResource("1_ykfhg")
+input_prefix = ""
 
 [node name="AnimationSystem" type="Node2D" parent="." node_paths=PackedStringArray("player_controller")]
 script = ExtResource("2_psl8t")
@@ -153,5 +154,5 @@ region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(1, -19)
 shape = SubResource("CapsuleShape2D_0dto3")
