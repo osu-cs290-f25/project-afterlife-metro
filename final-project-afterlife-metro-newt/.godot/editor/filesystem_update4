@@ -1,0 +1,4 @@
+res://animation_system.gd
+res://game_ui.gd
+res://Assets/Scenes/game.gd
+res://timer_manager.gd

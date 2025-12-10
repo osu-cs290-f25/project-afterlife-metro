@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="leaderboard.css">
+    <title>Leaderboard - Afterlife Metro</title>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <div class="leaderboard-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+                <tr><td colspan="3">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <button onclick="window.location.href='homescreen.html'">Back to Home</button>
+
+    <script>
+        (() => {
+            const tbody = document.getElementById('leaderboard-body');
+
+            const formatTime = (ms) => {
+                const totalMs = Math.max(0, Math.floor(ms ?? 0));
+                const minutes = Math.floor(totalMs / 60000);
+                const seconds = Math.floor((totalMs % 60000) / 1000);
+                const millis = totalMs % 1000;
+                const pad = (n, w) => String(n).padStart(w, '0');
+                return `${pad(minutes, 2)}:${pad(seconds, 2)}.${pad(millis, 3)}`;
+            };
+
+            const renderRows = (rows) => {
+                tbody.innerHTML = '';
+                if (!rows.length) {
+                    tbody.innerHTML = '<tr><td colspan="3">No scores yet.</td></tr>';
+                    return;
+                }
+                rows.forEach((row, idx) => {
+                    const tr = document.createElement('tr');
+                    if (idx < 3) tr.classList.add('top3');
+                    tr.innerHTML = `
+                        <td>${idx + 1}</td>
+                        <td>${row.team ?? 'Unknown'}</td>
+                        <td>${formatTime(row.timeMs)}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            };
+
+            const loadScores = async () => {
+                try {
+                    const res = await fetch('/api/scores');
+                    if (!res.ok) throw new Error('Failed to load scores');
+                    const data = await res.json();
+                    const sorted = (data || []).slice().sort((a, b) => (a.timeMs ?? Infinity) - (b.timeMs ?? Infinity));
+                    renderRows(sorted);
+                } catch (err) {
+                    tbody.innerHTML = '<tr><td colspan="3">Failed to load leaderboard.</td></tr>';
+                    console.error(err);
+                }
+            };
+
+            loadScores();
+            setInterval(loadScores, 3000);
+        })();
+    </script>
+</body>
+</html>

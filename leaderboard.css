@@ -1,0 +1,75 @@
+body {
+    background-image: url('Afterlife-Metro/Assets/Sprites/Train Station Bckgrnd.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+    font-size: 80px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.leaderboard-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 600px;
+    border-collapse: collapse;
+    color: white;
+}
+
+thead {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+td {
+    font-size: 20px;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top3 {
+    background-color: rgba(255, 215, 0, 0.22);
+    color: #ffd700;
+}
+
+button {
+    height: 80px;
+    width: 300px;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: white;
+}

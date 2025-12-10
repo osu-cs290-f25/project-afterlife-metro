@@ -1,0 +1,22 @@
+[
+  {
+    "team": "hello world",
+    "timeMs": 2797.7000000029802,
+    "createdAt": "2025-12-10T01:48:03.136Z"
+  },
+  {
+    "team": "goodbye world",
+    "timeMs": 8929.70000000298,
+    "createdAt": "2025-12-10T01:48:24.874Z"
+  },
+  {
+    "team": "testing",
+    "timeMs": 2012.5,
+    "createdAt": "2025-12-10T01:48:35.872Z"
+  },
+  {
+    "team": "losing",
+    "timeMs": 10348.5,
+    "createdAt": "2025-12-10T01:48:56.702Z"
+  }
+]

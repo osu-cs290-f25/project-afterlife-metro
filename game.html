@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afterlife Metro - Game</title>
+  <style>
+    :root {
+      --overlay-duration: 3s;
+      --ui-padding: 16px;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    body {
+      position: relative;
+    }
+
+    .game-shell {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #game-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Black overlay that blocks interaction until fade completes */
+    #fade-overlay {
+      position: absolute;
+      inset: 0;
+      background: black;
+      opacity: 1;
+      pointer-events: all;
+      animation: fadeOut var(--overlay-duration) ease-in forwards;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* Timer display */
+    #timer-display {
+      position: absolute;
+      top: var(--ui-padding);
+      left: var(--ui-padding);
+      background: rgba(0, 0, 0, 0.55);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 22px;
+      font-weight: bold;
+      z-index: 2;
+      pointer-events: none;
+      min-width: 140px;
+      text-align: center;
+    }
+
+    /* End Game button */
+    #end-game-btn {
+      position: absolute;
+      bottom: var(--ui-padding);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 14px 26px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #111;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    #end-game-btn:hover {
+      background: #fff;
+    }
+
+    /* Modal */
+    #modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+    }
+
+    #modal {
+      background: #101010;
+      border-radius: 10px;
+      padding: 24px;
+      width: 320px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    #modal h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    #modal p {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    #team-input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      background: #1a1a1a;
+      color: white;
+      margin-bottom: 14px;
+      box-sizing: border-box;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .modal-actions button {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-secondary {
+      background: #333;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background: #ffd700;
+      color: #111;
+      font-weight: 700;
+    }
+
+    .time-preview {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ffd700;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-shell">
+    <iframe id="game-frame" src="Afterlife-Metro/Afterlife-metro-godot-Newt.html" title="Afterlife Metro Game"></iframe>
+
+    <div id="fade-overlay">Starting...</div>
+    <div id="timer-display">00:00.000</div>
+    <button id="end-game-btn" type="button">End Game</button>
+  </div>
+
+  <div id="modal-backdrop">
+    <div id="modal">
+      <h2>End Game</h2>
+      <div class="time-preview" id="final-time">Time: 00:00.000</div>
+      <p>Enter your team name to save your time.</p>
+      <input id="team-input" type="text" name="team" placeholder="Team name" maxlength="40" autocomplete="off" />
+      <div class="modal-actions">
+        <button class="btn-secondary" type="button" id="cancel-modal">Cancel</button>
+        <button class="btn-primary" type="button" id="submit-modal">Save & Return</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const overlay = document.getElementById('fade-overlay');
+      const timerDisplay = document.getElementById('timer-display');
+      const endBtn = document.getElementById('end-game-btn');
+      const modalBackdrop = document.getElementById('modal-backdrop');
+      const finalTimeLabel = document.getElementById('final-time');
+      const teamInput = document.getElementById('team-input');
+      const cancelModalBtn = document.getElementById('cancel-modal');
+      const submitModalBtn = document.getElementById('submit-modal');
+
+      let startTime = null;
+      let elapsedBeforePause = 0;
+      let timerId = null;
+      let isRunning = false;
+      let pausedElapsed = 0;
+
+      const formatTime = (ms) => {
+        const totalMs = Math.max(0, Math.floor(ms));
+        const minutes = Math.floor(totalMs / 60000);
+        const seconds = Math.floor((totalMs % 60000) / 1000);
+        const millis = totalMs % 1000;
+        const pad = (n, width) => String(n).padStart(width, '0');
+        return `${pad(minutes, 2)}:${pad(seconds, 2)}.${pad(millis, 3)}`;
+      };
+
+      const renderTime = (ms) => {
+        timerDisplay.textContent = formatTime(ms);
+      };
+
+      const getElapsed = () => {
+        if (!isRunning || startTime === null) return elapsedBeforePause;
+        return (performance.now() - startTime) + elapsedBeforePause;
+      };
+
+      const startTimer = () => {
+        if (isRunning) return;
+        isRunning = true;
+        startTime = performance.now();
+        timerId = window.setInterval(() => {
+          renderTime(getElapsed());
+        }, 100);
+      };
+
+      const pauseTimer = () => {
+        if (!isRunning) return elapsedBeforePause;
+        const total = getElapsed();
+        isRunning = false;
+        elapsedBeforePause = total;
+        if (timerId) window.clearInterval(timerId);
+        timerId = null;
+        return total;
+      };
+
+      // Handle fade overlay end -> enable play and start timer
+      overlay.addEventListener('animationend', () => {
+        overlay.remove();
+        startTimer();
+      });
+
+      // Modal helpers
+      const openModal = (finalMs) => {
+        pausedElapsed = finalMs;
+        finalTimeLabel.textContent = `Time: ${formatTime(finalMs)}`;
+        modalBackdrop.style.display = 'flex';
+        teamInput.value = '';
+        teamInput.focus();
+      };
+
+      const closeModal = () => {
+        modalBackdrop.style.display = 'none';
+      };
+
+      const submitScore = async (team, timeMs) => {
+        const payload = { team, timeMs, createdAt: new Date().toISOString() };
+        try {
+          const res = await fetch('/api/scores', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error('Failed to save score');
+          window.location.href = 'homescreen.html';
+        } catch (err) {
+          alert('Could not save score. Please try again.');
+          console.error(err);
+        }
+      };
+
+      endBtn.addEventListener('click', () => {
+        const finalMs = pauseTimer();
+        openModal(finalMs);
+      });
+
+      cancelModalBtn.addEventListener('click', () => {
+        closeModal();
+        startTimer();
+      });
+
+      submitModalBtn.addEventListener('click', () => {
+        const team = teamInput.value.trim();
+        if (!team) {
+          alert('Please enter a team name.');
+          return;
+        }
+        submitScore(team, pausedElapsed);
+      });
+
+      // Safety: prevent overlay from blocking if animation doesn't fire
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          if (overlay.isConnected) {
+            overlay.remove();
+            startTimer();
+          }
+        }, 3500);
+      });
+    })();
+  </script>
+</body>
+</html>

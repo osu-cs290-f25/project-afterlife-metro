@@ -1,7 +1,11 @@
 body{
-background-image: url('final-project-afterlife-metro-newt/Assets/Trains /train2.jpeg');  
+background-image: url('Afterlife-Metro/Assets/Sprites/Train Station Bckgrnd.jpg');  
 background-size: cover;  
+background-position: center center;
 text-align: center; 
+overflow: hidden;
+height: 100vh;
+margin: 0;
 }
 
 h1{
@@ -14,4 +18,6 @@ button{
     height: 100px;
     width: 400px;
     font-size: 40px;
+    display: block;
+    margin: 20px auto;
 }
