@@ -96,6 +96,83 @@
       background: #fff;
     }
 
+    /* Pause button */
+    #pause-btn {
+      position: absolute;
+      top: var(--ui-padding);
+      right: var(--ui-padding);
+      padding: 10px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #111;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    #pause-btn:hover {
+      background: #fff;
+    }
+
+    /* Pause menu overlay */
+    #pause-menu-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+    }
+
+    #pause-menu {
+      background: #101010;
+      border-radius: 10px;
+      padding: 30px;
+      width: 300px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    #pause-menu h2 {
+      margin: 0 0 24px;
+      font-size: 28px;
+    }
+
+    .pause-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pause-actions button {
+      padding: 12px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .pause-resume {
+      background: #ffd700;
+      color: #111;
+    }
+
+    .pause-resume:hover {
+      background: #ffed4e;
+    }
+
+    .pause-quit {
+      background: #666;
+      color: #fff;
+    }
+
+    .pause-quit:hover {
+      background: #888;
+    }
+
     /* Modal */
     #modal-backdrop {
       position: fixed;
@@ -177,7 +254,18 @@
 
     <div id="fade-overlay">Starting...</div>
     <div id="timer-display">00:00.000</div>
+    <button id="pause-btn" type="button">Pause</button>
     <button id="end-game-btn" type="button">End Game</button>
+  </div>
+
+  <div id="pause-menu-backdrop">
+    <div id="pause-menu">
+      <h2>Paused</h2>
+      <div class="pause-actions">
+        <button class="pause-resume" type="button" id="resume-btn">Resume</button>
+        <button class="pause-quit" type="button" id="quit-btn">Quit to Home</button>
+      </div>
+    </div>
   </div>
 
   <div id="modal-backdrop">
@@ -193,78 +281,40 @@
     </div>
   </div>
 
+  <script src="timer.js"></script>
+  <script src="pause-menu.js"></script>
+  <script src="end-game-modal.js"></script>
   <script>
     (() => {
       const overlay = document.getElementById('fade-overlay');
       const timerDisplay = document.getElementById('timer-display');
+      const pauseBtn = document.getElementById('pause-btn');
       const endBtn = document.getElementById('end-game-btn');
-      const modalBackdrop = document.getElementById('modal-backdrop');
-      const finalTimeLabel = document.getElementById('final-time');
-      const teamInput = document.getElementById('team-input');
-      const cancelModalBtn = document.getElementById('cancel-modal');
-      const submitModalBtn = document.getElementById('submit-modal');
 
-      let startTime = null;
-      let elapsedBeforePause = 0;
-      let timerId = null;
-      let isRunning = false;
-      let pausedElapsed = 0;
+      // Initialize modules
+      PauseMenu.init();
+      EndGameModal.init();
 
-      const formatTime = (ms) => {
-        const totalMs = Math.max(0, Math.floor(ms));
-        const minutes = Math.floor(totalMs / 60000);
-        const seconds = Math.floor((totalMs % 60000) / 1000);
-        const millis = totalMs % 1000;
-        const pad = (n, width) => String(n).padStart(width, '0');
-        return `${pad(minutes, 2)}:${pad(seconds, 2)}.${pad(millis, 3)}`;
-      };
-
-      const renderTime = (ms) => {
-        timerDisplay.textContent = formatTime(ms);
-      };
-
-      const getElapsed = () => {
-        if (!isRunning || startTime === null) return elapsedBeforePause;
-        return (performance.now() - startTime) + elapsedBeforePause;
-      };
-
-      const startTimer = () => {
-        if (isRunning) return;
-        isRunning = true;
-        startTime = performance.now();
-        timerId = window.setInterval(() => {
-          renderTime(getElapsed());
-        }, 100);
-      };
-
-      const pauseTimer = () => {
-        if (!isRunning) return elapsedBeforePause;
-        const total = getElapsed();
-        isRunning = false;
-        elapsedBeforePause = total;
-        if (timerId) window.clearInterval(timerId);
-        timerId = null;
-        return total;
-      };
-
-      // Handle fade overlay end -> enable play and start timer
-      overlay.addEventListener('animationend', () => {
-        overlay.remove();
-        startTimer();
+      // Setup callbacks
+      PauseMenu.setOnResume(() => {
+        Timer.resume((ms) => {
+          timerDisplay.textContent = Timer.formatTime(ms);
+        });
       });
 
-      // Modal helpers
-      const openModal = (finalMs) => {
-        pausedElapsed = finalMs;
-        finalTimeLabel.textContent = `Time: ${formatTime(finalMs)}`;
-        modalBackdrop.style.display = 'flex';
-        teamInput.value = '';
-        teamInput.focus();
-      };
+      PauseMenu.setOnQuit(() => {
+        window.location.href = 'homescreen.html';
+      });
 
-      const closeModal = () => {
-        modalBackdrop.style.display = 'none';
-      };
+      EndGameModal.setOnCancel(() => {
+        Timer.resume((ms) => {
+          timerDisplay.textContent = Timer.formatTime(ms);
+        });
+      });
+
+      EndGameModal.setOnSubmit((team, timeMs) => {
+        submitScore(team, timeMs);
+      });
 
       const submitScore = async (team, timeMs) => {
         const payload = { team, timeMs, createdAt: new Date().toISOString() };
@@ -282,23 +332,25 @@
         }
       };
 
-      endBtn.addEventListener('click', () => {
-        const finalMs = pauseTimer();
-        openModal(finalMs);
+      // Handle fade overlay end -> enable play and start timer
+      overlay.addEventListener('animationend', () => {
+        overlay.remove();
+        Timer.start((ms) => {
+          timerDisplay.textContent = Timer.formatTime(ms);
+        });
       });
 
-      cancelModalBtn.addEventListener('click', () => {
-        closeModal();
-        startTimer();
-      });
-
-      submitModalBtn.addEventListener('click', () => {
-        const team = teamInput.value.trim();
-        if (!team) {
-          alert('Please enter a team name.');
-          return;
+      // Button event listeners
+      pauseBtn.addEventListener('click', () => {
+        if (!PauseMenu.isPausedState()) {
+          Timer.pause();
+          PauseMenu.open();
         }
-        submitScore(team, pausedElapsed);
+      });
+
+      endBtn.addEventListener('click', () => {
+        const finalMs = Timer.pause();
+        EndGameModal.open(finalMs);
       });
 
       // Safety: prevent overlay from blocking if animation doesn't fire
@@ -306,7 +358,9 @@
         setTimeout(() => {
           if (overlay.isConnected) {
             overlay.remove();
-            startTimer();
+            Timer.start((ms) => {
+              timerDisplay.textContent = Timer.formatTime(ms);
+            });
           }
         }, 3500);
       });
