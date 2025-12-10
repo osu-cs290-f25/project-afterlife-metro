@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Dogica';
+    src: url('Afterlife-Metro/Assets/dogica/TTF/dogica.ttf') format('truetype');
+}
+
 body {
     background-image: url('Afterlife-Metro/Assets/Scenes/Areas/subwaygif.gif');
     background-size: cover;
@@ -11,13 +16,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Dogica', Arial, sans-serif;
     color: #120638;
+    line-height: 1.8;
 }
 
 h1 {
     color: #ffffff;
-    font-size: 60px;
+    font-size: 70px;
     margin-bottom: 20px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.478);
 }
@@ -67,13 +73,13 @@ th, td {
 }
 
 th {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     color: #120638;
 }
 
 td {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 tr:hover {
@@ -93,8 +99,8 @@ tr {
 button {
     width: 85%;
     max-width: 300px;       
-    min-height: 60px;      
-    font-size: 30px;       
+    min-height: 60px;   
+    font-size: 20px;       
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.726);
     border: none;
@@ -103,6 +109,7 @@ button {
     font-weight: bold;
     transition: background-color 0.2s;
     color: #120638;
+    font-family: 'Dogica', Arial, sans-serif;
 }
 
 button:hover {
