@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxif6kt02qp4k"]
+
+[ext_resource type="Script" uid="uid://b6rdj7vhy33xt" path="res://pressure_plate.gd" id="1_8bqyo"]
+[ext_resource type="Texture2D" uid="uid://cehmlncj0pybf" path="res://Assets/Sprites/updated_tiles.png" id="1_uot4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uot4y"]
+size = Vector2(8.727273, 8.86747)
+
+[node name="PressurePlate" type="Node2D"]
+light_mask = 0
+visibility_layer = 512
+z_index = 1
+script = ExtResource("1_8bqyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.9604645e-08, -5.9604645e-08)
+scale = Vector2(1.75, 1.7282609)
+texture = ExtResource("1_uot4y")
+region_enabled = true
+region_rect = Rect2(197.21735, 132.46078, 24.280945, 23.921219)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(1.8333334, 1.8043479)
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-9.536743e-07, 0)
+shape = SubResource("RectangleShape2D_uot4y")

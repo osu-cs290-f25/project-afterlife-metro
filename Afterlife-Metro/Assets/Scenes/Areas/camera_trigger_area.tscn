@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccr2ggrj3ja5q"]
+
+[sub_resource type="GDScript" id="GDScript_3emv4"]
+script/source = "extends Area2D
+
+# Desired zoom values
+@export var zoomed_out := Vector2(2, 2)
+@export var zoomed_in := Vector2(1, 1)
+
+# Get cameras directly from the scene tree
+@onready var left_cam  = get_node(\"/root/Game2D/HBoxContainer/LeftViewportContainer/LeftSubViewport/LeftCamera2D\")
+@onready var right_cam = get_node(\"/root/Game2D/HBoxContainer/RightViewportContainer/RightSubViewport/RightCamera2D\")
+
+
+func _ready():
+	body_entered.connect(_on_enter)
+	body_exited.connect(_on_exit)
+	print(\"Cameras loaded:\", left_cam, right_cam)
+
+
+func _on_enter(body):
+	print(\"ENTERED:\", body.name)
+	left_cam.zoom = zoomed_out
+	right_cam.zoom = zoomed_out
+
+
+func _on_exit(body):
+	print(\"EXIT:\", body.name)
+	left_cam.zoom = zoomed_in
+	right_cam.zoom = zoomed_in
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3emv4"]
+size = Vector2(108, 99.5)
+
+[node name="CameraTriggerArea" type="Area2D"]
+script = SubResource("GDScript_3emv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(55, 50.25)
+shape = SubResource("RectangleShape2D_3emv4")

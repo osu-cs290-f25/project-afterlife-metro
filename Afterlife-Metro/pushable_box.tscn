@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bevaccmv0fbex"]
+
+[ext_resource type="Script" uid="uid://c6wb8efmodkxi" path="res://pushable_box.gd" id="1_d1qr3"]
+[ext_resource type="Texture2D" uid="uid://cehmlncj0pybf" path="res://Assets/Sprites/updated_tiles.png" id="2_m2us3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx8e3"]
+size = Vector2(39, 29.499994)
+
+[node name="Pushable_Box" type="RigidBody2D" groups=["pushable"]]
+collision_layer = 256
+collision_mask = 259
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_d1qr3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11.000001)
+scale = Vector2(1.6153846, 1.7)
+texture = ExtResource("2_m2us3")
+region_enabled = true
+region_rect = Rect2(98.767624, 69.4397, 26.90326, 20.638115)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -11.249999)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_nx8e3")
