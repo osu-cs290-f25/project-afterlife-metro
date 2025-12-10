@@ -1,24 +1,32 @@
-.instructions-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;       
-    max-width: 800px; 
-    margin: 20px auto; 
-    box-sizing: border-box;
+body {
+    background-color: #d6b9f3;  
+    margin: 20px;
+    font-family: Arial, sans-serif;
 }
+
+.instructions-container {
+    background-color: #d6b9f3; 
+    padding: 50px;
+    border-radius: 10px;
+    width: 80%;       
+    max-width: 700px; 
+    margin: 60px auto; 
+    box-sizing: border-box;
+    color: black; 
+}
+
 
 h1 {
     font-size: 70px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+
 }
 
 h2 {
-    font-size: 45px;
+    font-size: 45 px;
     margin-top: 30px;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+   
 }
 
 p, li {
@@ -33,23 +41,14 @@ ul {
     max-width: 600px;
 }
 
-.instructions-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin-bottom: 30px;
-}
-
 button {
-    height: 70px;
+    height: 80px;
     width: 300px;
-    font-size: 26px;
+    font-size: 30px;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.9);
     border: none;
     border-radius: 5px;
-    margin-top: 20px;
 }
 
 button:hover {
