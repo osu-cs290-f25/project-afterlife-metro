@@ -10,15 +10,15 @@ body {
     color: white;
 }
 
-/* Heading */
+
 h1 {
     color: white;
-    padding-top: 15vh;     /* vertical spacing relative to viewport */
-    font-size: 8vw;        /* scales with viewport width */
+    padding-top: 15vh;    
+    font-size: 8vw;       
     margin: 0 0 6vh 0;
 }
 
-/* Main content container (instructions/leaderboard) */
+
 .main-container {
     width: 85%;
     max-width: 1200px;
@@ -28,16 +28,16 @@ h1 {
     text-align: center;
 }
 
-/* Buttons for homepage / instructions / leaderboard */
+
 button {
-    width: 25%;             /* 25% of container */
-    min-width: 200px;       /* never too small */
-    max-width: 400px;       /* never too big */
-    height: 10vh;           /* relative to viewport height */
-    min-height: 60px;       /* minimum height */
-    font-size: 2.5vw;       /* scales with viewport width */
+    width: 25%;           
+    min-width: 200px;       
+    max-width: 400px;       
+    height: 10vh;          
+    min-height: 60px;      
+    font-size: 2.5vw;       
     display: block;
-    margin: 5vh auto 3vh auto; /* bottom spacing */
+    margin: 5vh auto 3vh auto; 
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.9);
     border: none;
@@ -49,7 +49,7 @@ button:hover {
     background-color: white;
 }
 
-/* Media queries for smaller screens */
+
 @media (max-width: 900px) {
     h1 { font-size: 10vw; padding-top: 8vh; }
     button { width: 35%; font-size: 3vw; height: 8vh; margin: 4vh auto 2vh auto; }
