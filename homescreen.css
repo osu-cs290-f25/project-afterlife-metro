@@ -3,7 +3,7 @@ background-image: url('Afterlife-Metro/Assets/Sprites/Train Station Bckgrnd.jpg'
 background-size: cover;  
 background-position: center center;
 text-align: center; 
-overflow: hidden;
+overflow-y: auto;
 height: 100vh;
 margin: 0;
 }
