@@ -1,5 +1,5 @@
 body {
-    background-image: url('Afterlife-Metro/Assets/Sprites/Train Station Bckgrnd.jpg');
+    background-image: url('Afterlife-Metro/Assets/Scenes/Areas/subwaygif.gif');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -11,65 +11,99 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: Arial, sans-serif;
+    color: #120638;
 }
 
 h1 {
-    color: white;
-    font-size: 80px;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-size: 60px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.478);
+}
+
+.leaderboard-wrapper {
+    background-color: #383541d8;
+    border-radius: 15px;
+    padding: 30px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 70vh;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .leaderboard-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
+    padding: 0;
 }
 
 table {
-    width: 600px;
+    width: 100%;
     border-collapse: collapse;
-    color: white;
+    color: #120638;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 thead {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.726);
+}
+thead:hover {
+    background-color: #F0EFF4;
+}
+
+thead tr:first-child th:first-child {
+    border-top-left-radius: 8px;
+}
+
+thead tr:first-child th:last-child {
+    border-top-right-radius: 8px;
 }
 
 th, td {
-    padding: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-bottom: 1px solid rgba(18, 6, 56, 0.2);
+    text-align: center;
 }
 
 th {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
+    color: #120638;
 }
 
 td {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 tr:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(18, 6, 56, 0.08);
+}
+
+tr {
+    color: #F0EFF4;
 }
 
 .top3 {
-    background-color: rgba(255, 215, 0, 0.22);
-    color: #ffd700;
+    background-color: #48435cec;
+    color: #F0EFF4;
+    font-weight: bold;
 }
 
 button {
-    height: 80px;
-    width: 300px;
-    font-size: 30px;
+    height: 60px;
+    width: 250px;
+    font-size: 18px;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.726);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    color: #120638;
 }
 
 button:hover {
-    background-color: white;
+    background-color: #F0EFF4;
 }

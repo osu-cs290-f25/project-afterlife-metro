@@ -1,0 +1,269 @@
+:root {
+  --overlay-duration: 3s;
+  --ui-padding: 16px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+body {
+  position: relative;
+}
+
+.game-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#game-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Black overlay that blocks interaction until fade completes */
+#fade-overlay {
+  position: absolute;
+  inset: 0;
+  background: black;
+  opacity: 1;
+  pointer-events: all;
+  animation: fadeOut var(--overlay-duration) ease-in forwards;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Timer display */
+#timer-display {
+  position: absolute;
+  top: var(--ui-padding);
+  left: var(--ui-padding);
+  background: rgba(0, 0, 0, 0.55);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: bold;
+  z-index: 2;
+  pointer-events: none;
+  min-width: 140px;
+  text-align: center;
+}
+
+/* End Game button */
+#end-game-btn {
+  position: absolute;
+  bottom: var(--ui-padding);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 26px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.726);
+  color: #120638;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+#end-game-btn:hover {
+  background-color: #F0EFF4;
+}
+
+/* Pause button */
+#pause-btn {
+  position: absolute;
+  top: var(--ui-padding);
+  right: var(--ui-padding);
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.726);
+  color: #120638;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+#pause-btn:hover {
+  background-color: #F0EFF4;
+}
+
+/* Pause menu overlay */
+#pause-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+#pause-menu {
+  background-color: #383541d8;
+  border-radius: 15px;
+  padding: 40px;
+  width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+#pause-menu h2 {
+  margin: 0 0 30px;
+  font-size: 36px;
+  color: #F0EFF4;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.pause-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pause-actions button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.pause-resume {
+  background-color: rgba(255, 255, 255, 0.726);
+  color: #120638;
+}
+
+.pause-resume:hover {
+  background-color: #F0EFF4;
+}
+
+.pause-quit {
+  background-color: rgba(255, 255, 255, 0.726);
+  color: #120638;
+}
+
+.pause-quit:hover {
+  background-color: #F0EFF4;
+}
+
+/* Modal */
+#modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+#modal {
+  background-color: #383541d8;
+  border-radius: 15px;
+  padding: 40px;
+  width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+#modal h2 {
+  margin: 0 0 20px;
+  font-size: 28px;
+  color: #F0EFF4;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+#modal p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  color: #F0EFF4;
+}
+
+#team-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #120638;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#team-input::placeholder {
+  color: rgba(18, 6, 56, 0.5);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.modal-actions button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.726);
+  color: #120638;
+}
+
+.btn-secondary:hover {
+  background-color: #F0EFF4;
+}
+
+.btn-primary {
+  background-color: rgba(255, 255, 255, 0.726);
+  color: #120638;
+}
+
+.btn-primary:hover {
+  background-color: #F0EFF4;
+}
+
+.time-preview {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #F0EFF4;
+}
