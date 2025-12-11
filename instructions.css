@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Dogica';
-    src: url('Afterlife-Metro/Assets/dogica/TTF/dogica.ttf') format('truetype');
+    src: url('homepage-assets/fonts/dogica.ttf') format('truetype');
 }
 
 body {
-    background-image: url('Afterlife-Metro/Assets/Scenes/Areas/subwaygif.gif');
+    background-image: url('homepage-assets/subwaygif.gif');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
