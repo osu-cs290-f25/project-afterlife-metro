@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://k3nc2lr30wau"]
+
+[ext_resource type="Script" uid="uid://be5u0auckd6cm" path="res://Assets/Scenes/dialogue scenes + scripts/dialogue_1.gd" id="1_0ok7p"]
+[ext_resource type="FontFile" uid="uid://b1b13bxjp2bl" path="res://Assets/fonts/dogica.ttf" id="2_p22oj"]
+[ext_resource type="Texture2D" uid="uid://dci6wh8xbrsuv" path="res://Assets/Sprites/updated_tiles_tuesday2.png" id="3_odaxu"]
+
+[node name="Dialogue1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ok7p")
+
+[node name="NextButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 581.0
+offset_top = 584.0
+offset_right = 805.0
+offset_bottom = 613.0
+theme_override_fonts/font = ExtResource("2_p22oj")
+theme_override_font_sizes/font_size = 24
+text = "Next Page"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(570, 326.125)
+scale = Vector2(8.909091, 10.804167)
+texture = ExtResource("3_odaxu")
+region_enabled = true
+region_rect = Rect2(94.741356, 195.65514, 66.18803, 60.344864)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_right = 0.73
+anchor_bottom = 1.0
+offset_left = 26.087982
+offset_top = 63.0
+offset_right = -22.960022
+offset_bottom = -73.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_p22oj")
+text = "
+The final memory fragment in 
+
+Hughes hand. He remembers 
+
+slipping- or maybe being pushed
+
+towards the edge. He remembers
+
+trying to climb back up, then 
+
+nothing. Just nothing, just 
+
+darkness, and waking up on that
+
+empty bench with no idea who he
+
+was or how he got there. 
+"

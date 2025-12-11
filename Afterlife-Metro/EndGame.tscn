@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg0tkouvdkjqx"]
+
+[ext_resource type="Script" uid="uid://cppopure8sq2p" path="res://main_menu.gd" id="1_150j3"]
+[ext_resource type="Texture2D" uid="uid://1t6r7jjkfq5x" path="res://Assets/Sprites/Train Station Bckgrnd.jpg" id="2_tf8rs"]
+[ext_resource type="FontFile" uid="uid://c77t3xgv5f1yx" path="res://Vaseline Extra.ttf" id="3_lvmfc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vrkn"]
+texture = ExtResource("2_tf8rs")
+modulate_color = Color(0.98363394, 0.85749435, 0.8441944, 1)
+
+[node name="EndGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_150j3")
+
+[node name="Background Img" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7vrkn")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.0
+offset_top = 146.0
+offset_right = 253.0
+offset_bottom = 236.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_lvmfc")
+theme_override_font_sizes/font_size = 80
+text = "Afterlife Metro"
+
+[node name="Credentials" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -640.0
+offset_right = 725.0
+offset_bottom = -593.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Made By Newton B, Nour A, Ally C, Simarjeet K"
+
+[node name="ThankYouMessage" type="Label" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 333.0
+offset_right = 897.0
+offset_bottom = 561.0
+theme_override_font_sizes/font_size = 54
+text = "Thank You For Playing!
+
+"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnai8lww4sioo"]
+
+[ext_resource type="Script" uid="uid://dij26kpdspvb" path="res://key.gd" id="1_3yj23"]
+[ext_resource type="Texture2D" uid="uid://dci6wh8xbrsuv" path="res://Assets/Sprites/updated_tiles_tuesday2.png" id="2_yxrlq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew0qg"]
+size = Vector2(25, 24)
+
+[node name="Key" type="Area2D" groups=["key"]]
+script = ExtResource("1_3yj23")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ew0qg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yxrlq")
+region_enabled = true
+region_rect = Rect2(29.244812, 163.9693, 28.09394, 25.719788)

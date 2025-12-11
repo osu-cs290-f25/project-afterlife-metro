@@ -5,6 +5,7 @@ class_name PlayerController
 @export var move_speed = 25.0
 @export var input_prefix : String = "move"
 
+var has_key: bool = false
 var direction : Vector2 = Vector2.ZERO
 var sprinting = false
 var sprint_multiplyer = 2.0

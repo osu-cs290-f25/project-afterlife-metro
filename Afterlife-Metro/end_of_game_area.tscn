@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmpyjx51c1djk"]
+
+[ext_resource type="Script" uid="uid://c0bfj0n0xemt7" path="res://end_of_game_area.gd" id="1_2us3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y0m2"]
+size = Vector2(61.75, 52.25)
+
+[node name="EndOfGameArea" type="Area2D"]
+collision_layer = 1073741856
+collision_mask = 536870914
+script = ExtResource("1_2us3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.125, 0)
+shape = SubResource("RectangleShape2D_1y0m2")

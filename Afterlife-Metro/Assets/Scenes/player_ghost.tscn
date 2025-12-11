@@ -136,9 +136,9 @@ _data = {
 radius = 12.0
 height = 38.0
 
-[node name="player_ghost" type="CharacterBody2D" groups=["player_ghost"]]
-collision_layer = 0
-collision_mask = 0
+[node name="player_ghost" type="CharacterBody2D" groups=["player_ghost", "players"]]
+collision_layer = 536870912
+collision_mask = 1073741856
 script = ExtResource("1_l5aar")
 input_prefix = "ghost_"
 
@@ -162,4 +162,5 @@ region_rect = Rect2(0, 0, 64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -20)
+scale = Vector2(1.1, 1.1)
 shape = SubResource("CapsuleShape2D_l5aar")

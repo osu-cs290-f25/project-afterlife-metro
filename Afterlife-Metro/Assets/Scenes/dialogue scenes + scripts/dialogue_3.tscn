@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://baevtlrqmvvam"]
+
+[ext_resource type="FontFile" uid="uid://b1b13bxjp2bl" path="res://Assets/fonts/dogica.ttf" id="1_4orab"]
+[ext_resource type="Script" uid="uid://cnhc3phisg1wk" path="res://Assets/Scenes/dialogue scenes + scripts/dialogue_3.gd" id="1_4xx2v"]
+[ext_resource type="Texture2D" uid="uid://dci6wh8xbrsuv" path="res://Assets/Sprites/updated_tiles_tuesday2.png" id="2_4gvhy"]
+
+[node name="Dialogue3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xx2v")
+
+[node name="NextButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 587.0
+offset_top = 582.0
+offset_right = 820.0
+offset_bottom = 612.0
+theme_override_fonts/font = ExtResource("1_4orab")
+theme_override_font_sizes/font_size = 25
+text = "Next Page"
+
+[node name="PrevButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 320.0
+offset_top = 583.0
+offset_right = 553.0
+offset_bottom = 613.0
+theme_override_fonts/font = ExtResource("1_4orab")
+theme_override_font_sizes/font_size = 25
+text = "Prev Page
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(570, 326.125)
+scale = Vector2(8.909091, 10.804167)
+texture = ExtResource("2_4gvhy")
+region_enabled = true
+region_rect = Rect2(94.741356, 195.65514, 66.18803, 60.344864)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_right = 0.73
+anchor_bottom = 1.0
+offset_left = 42.087982
+offset_top = 41.0
+offset_right = -26.960022
+offset_bottom = -111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4orab")
+text = "... So what now?
+
+Violet turns toward the tunnel
+
+ahead, where the darkness is
+
+deep but no longer empty. 
+
+\"Now,\" she says \"you dont have
+
+to be lost by yourself. We
+
+figure out what comes next -
+
+together, or not. But youre
+
+not stuck in the dark anymore.
+
+
+Hugh nods, not comforted, but
+
+grounded -- a new kind of hope,
+
+thin, but real. And they walk
+
+on.
+"
