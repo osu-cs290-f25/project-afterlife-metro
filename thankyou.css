@@ -6,7 +6,8 @@
 body {
     background-image: url('/Afterlife-Metro/Assets/nour-train.gif');
     background-size: cover;
-    background-position: center center;
+    /* Shift background image upward to show more of the train ceiling */
+    background-position: center 15%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin: 0;
