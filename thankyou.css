@@ -1,0 +1,173 @@
+@font-face {
+    font-family: 'Dogica';
+    src: url('homepage-assets/fonts/dogica.ttf') format('truetype');
+}
+
+body {
+    background-image: url('/homepage-assets/subwaygif.gif');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Dogica', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.thankyou-container {
+    background-color: #383541d8;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 50px 10px 50px 10px;
+    padding: 40px 60px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0 0 20px 0;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+p {
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.completion-message {
+    font-size: 18px;
+    color: #c8f0e6;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+button {
+    width: 85%;
+    max-width: 300px;
+    min-height: 60px;
+    font-size: 18px;
+    display: block;
+    margin: 15px auto;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.726);
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    color: #120638;
+    font-weight: bold;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    font-family: 'Dogica', Arial, sans-serif;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.895);
+}
+
+/* Modal */
+#modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+
+#modal {
+    background-color: #383541d8;
+    border-radius: 15px;
+    padding: 40px;
+    width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+#modal h2 {
+    margin: 0 0 20px;
+    font-size: 28px;
+    color: #F0EFF4;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+#modal p {
+    margin: 0 0 16px;
+    font-size: 12px;
+    color: #F0EFF4;
+}
+
+#team-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #120638;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Dogica', Arial, sans-serif;
+}
+
+#team-input::placeholder {
+    color: rgba(18, 6, 56, 0.5);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-actions button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    font-family: 'Dogica', Arial, sans-serif;
+    flex: 1;
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.726);
+    color: #120638;
+}
+
+.btn-secondary:hover {
+    background-color: #F0EFF4;
+}
+
+.btn-primary {
+    background-color: rgba(255, 255, 255, 0.726);
+    color: #120638;
+}
+
+.btn-primary:hover {
+    background-color: #F0EFF4;
+}
+
+.time-preview {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #F0EFF4;
+}

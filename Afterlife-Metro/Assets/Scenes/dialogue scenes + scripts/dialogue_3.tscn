@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://baevtlrqmvvam"]
 
-[ext_resource type="FontFile" uid="uid://b1b13bxjp2bl" path="res://Assets/fonts/dogica.ttf" id="1_4orab"]
+[ext_resource type="FontFile" uid="uid://dx5bhrmdk7ncf" path="res://Assets/dogica/TTF/dogicabold.ttf" id="1_4orab"]
 [ext_resource type="Script" uid="uid://cnhc3phisg1wk" path="res://Assets/Scenes/dialogue scenes + scripts/dialogue_3.gd" id="1_4xx2v"]
 [ext_resource type="Texture2D" uid="uid://dci6wh8xbrsuv" path="res://Assets/Sprites/updated_tiles_tuesday2.png" id="2_4gvhy"]
 
@@ -49,10 +49,10 @@ anchors_preset = -1
 anchor_left = 0.256
 anchor_right = 0.73
 anchor_bottom = 1.0
-offset_left = 42.087982
-offset_top = 41.0
-offset_right = -26.960022
-offset_bottom = -111.0
+offset_left = 34.087982
+offset_top = 58.0
+offset_right = -15.960022
+offset_bottom = -94.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4orab")
 text = "... So what now?

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afterlife Metro - Thank You</title>
+    <link rel="stylesheet" href="thankyou.css">
+</head>
+
+<body>
+    <div class="thankyou-container">
+        <h1>Journey Complete!</h1>
+        <p>You've successfully navigated the boundary between life and death.</p>
+        <p>Your time in the Afterlife Metro has come to an end.</p>
+        <p>Thanks for playing!</p>
+        <div class="completion-message" id="completion-msg"></div>
+        <button id="save-score-btn" type="button">Save & Return</button>
+    </div>
+
+    <div id="modal-backdrop">
+        <div id="modal">
+            <h2>End Game</h2>
+            <div class="time-preview" id="final-time">Time: 00:00.000</div>
+            <p>Enter your team name to save your time.</p>
+            <input id="team-input" type="text" name="team" placeholder="Team name" maxlength="40" autocomplete="off" />
+            <div class="modal-actions">
+                <button class="btn-secondary" type="button" id="cancel-modal">Cancel</button>
+                <button class="btn-primary" type="button" id="submit-modal">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="timer.js"></script>
+    <script src="end-game-modal.js"></script>
+    <script src="thankyou.js"></script>
+</body>
+
+</html>

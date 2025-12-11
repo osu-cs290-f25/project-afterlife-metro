@@ -131,8 +131,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dto3"]
-radius = 15.0
-height = 44.0
+radius = 11.666667
+height = 36.666664
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fecy3"]
 size = Vector2(20, 31)
@@ -160,7 +160,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -19)
+position = Vector2(1, -17)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("CapsuleShape2D_0dto3")
 
